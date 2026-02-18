@@ -5,9 +5,7 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import OpenAI from 'openai'
 
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-})
+// OpenAI will be initialized inside the action to avoid build-time errors
 
 export async function createTrip(formData: FormData) {
     const supabase = await createClient()
@@ -112,6 +110,10 @@ export async function generateItinerary(tripId: string) {
     - Group Size: ${trip.group_size || 1} people
     
     Format the response in clear Markdown with headers for each day.`
+
+    const openai = new OpenAI({
+        apiKey: process.env.OPENAI_API_KEY,
+    })
 
     const response = await openai.chat.completions.create({
         model: "gpt-4o-mini",
