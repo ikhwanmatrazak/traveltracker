@@ -1,5 +1,13 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Configuration
+
+Before running the server, copy `.env.local.example` to `.env.local` (or edit the existing `.env.local`) and configure your keys:
+
+- `OPENAI_API_KEY`: Your secret key from [OpenAI](https://platform.openai.com/api-keys) for AI itinerary generation.
+- `NEXT_PUBLIC_SUPABASE_URL`: Your Supabase Project URL.
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Your Supabase anonymous key.
+
 ## Getting Started
 
 First, run the development server:
